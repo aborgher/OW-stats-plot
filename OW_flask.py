@@ -51,7 +51,7 @@ def create_allinfos(tree,category = 'competitive'): # 'quick play'
     return allheroes
 
 def getPlayerInfos(url,category='competitive'):
-    print("obtaining {0} the infos from ".format(category) + url)
+    print("obtaining {0} infos from ".format(category) + url)
     request = urllib.request.Request(url)
     rawPage = urllib.request.urlopen(request)
     read = rawPage.read()
@@ -150,14 +150,16 @@ from flask import request
 import json
 import plotly
 
+
 name = 'OW_stats_compare'
 app = Flask(name)
 app.debug = True
 app.config['key'] = 'secret'
 socketio = SocketIO(app)
 
-def get_players_stats(app_state):
-    players = app_state['players'].split(",")
+def get_players_stats(players):
+    # players = app_state['players'].split(",")
+    players = players.split(",")
     HeroesStatsQuickPlay = {}
     HeroesStatsCompetitive = {}
     prefix = "https://playoverwatch.com/en-gb/career/pc/eu/"
@@ -170,25 +172,19 @@ def get_players_stats(app_state):
             print("Players {0} not found".format(p))
     return HeroesStatsQuickPlay, HeroesStatsCompetitive
 
-HeroesStatsQuickPlay, HeroesStatsCompetitive = {}, {}
+# HeroesStats = {"quickplay":{}, "competitive":{}}
 
 @app.route('/', methods=['POST','GET'])
 def index():
-    # if request.method == 'POST':
-    #     HeroesStatsQuickPlay, HeroesStatsCompetitive = get_players_stats(app_state)
-
-    return render_template('layouts/layout_single_column_and_controls.html', app_name=name)
-
-@app.route('/showresults', methods=['POST','GET'])
-def showresults(app_state):
     if request.method == 'POST':
-        HeroesStatsQuickPlay, HeroesStatsCompetitive = get_players_stats(app_state)
-
+        players_choosen = request.form.get('players', None)
+        HeroesStatsQuickPlay, HeroesStatsCompetitive = get_players_stats(players_choosen)
+        global HeroesStatsQuickPlay
+        global HeroesStatsCompetitive
     return render_template('layouts/layout_single_column_and_controls.html', app_name=name)
-
 
 @socketio.on('replot')
-def replot(app_state):  
+def replot(app_state):
     HeroesStats = {}
     if app_state['mode'] == 'competitive':
         HeroesStats = HeroesStatsCompetitive

@@ -1,13 +1,17 @@
 <!-- <input type = "button" onclick = "get_players_stats()" value = "Load players data" name = "lpd" /> -->
 
 <form name='loadplayers' method='POST'>
+  <label for="players">Players</label>
+  <input name="players" id="players" type="text" class="u-full-width" >
   <input type="submit" value="Load players stats" class="submitButton"/>
 </form>
 
+
+
 <label>Mode</label>
 <select name="mode" class="u-full-width">
-    <option value= "quickplay"> Quickplay</option>
-    <option selected="selected" value= "competitive"> Competitive</option>
+    <option selected="selected" value= "quickplay"> Quickplay</option>
+    <option value= "competitive"> Competitive</option>
 </select>
 
 
