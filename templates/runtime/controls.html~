@@ -1,0 +1,37 @@
+<input type = "button" onclick = "get_players_stats()" value = "Load players data" name = "lpd" />
+
+<label>Mode</label>
+<select name="mode" class="u-full-width">
+    <option value= "quickplay"> Quickplay</option>
+    <option selected="selected" value= "competitive"> Competitive</option>
+</select>
+
+
+<label>Hero</label>
+<select name="hero" class="u-full-width">
+    <option value= "All Heroes"> All Heroes</option>
+    <option value= "Reaper"> Reaper</option>
+    <option selected="selected" value= "Tracer"> Tracer</option>
+    <option value= "Mercy"> Mercy</option>
+    <option value= "Hanzo"> Hanzo</option>
+    <option value= "Torbjorn"> Torbjorn</option>
+    <option value= "Reinhardt"> Reinhardt</option>
+    <option value= "Pharah"> Pharah</option>
+    <option value= "Winston"> Winston</option>
+    <option value= "Widowmaker"> Widowmaker</option>
+    <option value= "Bastion"> Bastion</option>
+    <option value= "Symmetra"> Symmetra</option>
+    <option value= "Zenyatta"> Zenyatta</option>
+    <option value= "Genji"> Genji</option>
+    <option value= "Roadhog"> Roadhog</option>
+    <option value= "McCree"> McCree</option>
+    <option value= "Junkrat"> Junkrat</option>
+    <option value= "Zarya"> Zarya</option>
+    <option value= "Soldier"> Soldier</option>
+    <option value= "Lucio"> Lucio</option>
+    <option value= "D.Va"> D.Va</option>
+    <option value= "Mei"> Mei</option>
+    <option value= "Ana"> Ana</option>
+    <option value= "Sombra"> Sombra</option>
+</select>
+

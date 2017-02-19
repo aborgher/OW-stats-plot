@@ -1,0 +1,4 @@
+
+<label for="players">Players</label>
+<input name="players" type="text" value="Ale-1244, Frenci-1486, Sam-1619, kiukki-2350, Alby-2701, ziGno-2418" class="u-full-width">
+

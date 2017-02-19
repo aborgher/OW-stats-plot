@@ -1,0 +1,23 @@
+
+{% extends "layouts/base.html" %}
+{% block content %}
+
+    <div class="row">
+      {% include "runtime/header.html" ignore missing %}
+    </div>
+
+    <div class="one columns">
+      {% include "runtime/players_control.html"  %}
+    </div>
+    
+    <div class="two columns">
+      {% include "runtime/controls.html"  %}
+    </div>
+
+    <div class="row">
+        <div class="nine columns">
+            {% include "runtime/main_pane.html" %}
+        </div>
+    </div>
+
+{% endblock %}
