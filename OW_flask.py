@@ -178,9 +178,9 @@ def get_players_stats(players):
 def index():
     if request.method == 'POST':
         players_choosen = request.form.get('players', None)
-        HeroesStatsQuickPlay, HeroesStatsCompetitive = get_players_stats(players_choosen)
         global HeroesStatsQuickPlay
         global HeroesStatsCompetitive
+        HeroesStatsQuickPlay, HeroesStatsCompetitive = get_players_stats(players_choosen)
     return render_template('layouts/layout_single_column_and_controls.html', app_name=name)
 
 @socketio.on('replot')
